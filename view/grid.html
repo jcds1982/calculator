@@ -1,0 +1,109 @@
+<style>
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(4, 5em);
+        grid-template-rows: repeat(6, 3.5em);
+        grid-column-gap: 0.2em;
+        grid-row-gap: 0.2em;
+        justify-items: center;
+        place-items: center;
+    }
+
+    .span-2{
+        grid-column: span 2;
+    }
+
+    .span-4{
+        grid-column: span 4;
+    }
+
+    .button{
+        /*background-color: #ededed;*/
+        border: 0;
+        border-radius: 50%;
+        font-size: 1em;
+        color: #ffffff;
+        padding: 1em;
+        width: 3em;
+        height: 3em;
+    }
+
+
+    .button_2_column{
+        border: 0;
+        border-radius: 20px;
+        font-size: 1em;
+        color: #ffffff;
+        padding: 1em;
+        width: 8.5em;
+        height: 3em;
+    }
+
+    .button_2_column:active, .button:active{
+        /*border-radius: 40%;*/
+        opacity: 80%;
+    }
+
+    .calculator_display{
+        width: 13em;
+        font-size: 1.5em;
+        padding: 0.5em;
+        border-radius: 0.5em;
+        text-align: right;
+        background-color: #A9A9A9;
+        color: #ffffff;
+        border: 0;
+    }
+
+    .calculator_display:focus{
+        outline: transparent;
+    }
+
+
+
+    .c_action{
+        background: #db9f39;
+    }
+
+    .c_number{
+        background: #b15d5d;
+    }
+
+    .c_operation{
+        background-color: #696969;
+
+    }
+
+    body{
+        background-color: #ffffff;
+        /*background-color: #b15d5d;*/
+    }
+</style>
+
+<div class="grid">
+
+    <input class=" calculator_display span-4" type="text" value="0" />
+    <button class="button c_action">C</button>
+    <button class="button c_action">+/-</button>
+    <button class="button c_action">%</button>
+    <button class="button c_operation">/</button>
+
+    <button class="button c_number">7</button>
+    <button class="button c_number">8</button>
+    <button class="button c_number">9</button>
+    <button class="button c_operation">x</button>
+
+    <button class="button c_number">4</button>
+    <button class="button c_number">5</button>
+    <button class="button c_number">6</button>
+    <button class="button c_operation">-</button>
+
+    <button class="button c_number">1</button>
+    <button class="button c_number">2</button>
+    <button class="button c_number">3</button>
+    <button class="button c_operation">+</button>
+
+    <button class="button_2_column c_number span-2">0</button>
+    <button class="button c_number">.</button>
+    <button class="button c_operation">=</button>
+</div>
