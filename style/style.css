@@ -1,44 +1,78 @@
-.button_number {
-    display: block;
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 5em);
+    grid-template-rows: repeat(6, 3.5em);
+    grid-column-gap: 0.2em;
+    grid-row-gap: 0.2em;
+    justify-items: center;
+    place-items: center;
 }
 
-button{
+.span-2{
+    grid-column: span 2;
+}
+
+.span-4{
+    grid-column: span 4;
+}
+
+.button{
+    /*background-color: #ededed;*/
     border: 0;
-    border-radius: 8px;
+    border-radius: 50%;
+    font-size: 1em;
+    color: #ffffff;
+    padding: 1em;
+    width: 3em;
+    height: 3em;
+}
+
+
+.button_2_column{
+    border: 0;
+    border-radius: 20px;
+    font-size: 1em;
+    color: #ffffff;
+    padding: 1em;
+    width: 8.5em;
+    height: 3em;
+}
+
+.button_2_column:active, .button:active{
+    /*border-radius: 40%;*/
+    opacity: 80%;
+}
+
+.calculator_display{
+    width: 13em;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    text-align: right;
+    background-color: #A9A9A9;
+    color: #ffffff;
+    border: 0;
+}
+
+.calculator_display:focus{
+    outline: transparent;
+}
+
+
+.c_action{
+    background: #db9f39;
+}
+
+.c_number{
     background: #b15d5d;
-    box-shadow:  5px 5px 11px #964f4f,
-    -5px -5px 11px #cc6b6b;
-    font-size: 1.5em;
-    margin-left: 0.5em;
-    color: #6c1e1e;
-    padding: 2em;
 }
 
-button:active{
-    border-radius: 8px;
-    background: #8a3838;
-    box-shadow: inset -5px 5px 11px #753030,
-    inset 5px -5px 11px #9f4040;
+.c_operation{
+    background-color: #696969;
+
 }
 
-/*
-button:active{
-    border-radius: 8px;
-    background: linear-gradient(225deg, #7c3232, #943c3c);
-    box-shadow:  -5px 5px 11px #753030,
-    5px -5px 11px #9f4040;
-}
-*/
-
-input[type=text]{
-    border: 0;
-    border-radius: 8px;
-    /*background: #6c1e1e;*/
-    border-radius: 32px;
-    background: #ffffff;
-    box-shadow: inset 14px 14px 33px #ededed,
-    inset -14px -14px 33px #ffffff;
-    padding: 2em;
-    font-size: 1.5em;
-
+body{
+    background-color: #ffffff;
+    /*background-color: #b15d5d;*/
 }
