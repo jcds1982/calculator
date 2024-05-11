@@ -13,6 +13,10 @@ const INPUT_TYPE = new Map()
     .set('.','PERIOD');
 
 
+/**
+ * Enters the value on the input text for calculation
+ * @param value Current value from button.
+ */
 let inputValue = (value)=>{
 
     let CURRENT_VALUE = document.getElementById(INPUT_ID);
@@ -20,19 +24,16 @@ let inputValue = (value)=>{
 
     switch (CASE_OPTION){
         case 'PERIOD':
-            console.log('Entered Period');
             if(value.includes('.') && !CURRENT_VALUE.value.includes('.')) {
                 CURRENT_VALUE.value = Number(CURRENT_VALUE.value) === 0 ? '0' + value : CURRENT_VALUE.value + value;
             }
             break;
 
         case 'NUMBER':
-            console.log('Entered Number');
             CURRENT_VALUE.value = Number(CURRENT_VALUE.value) === 0 ? value : CURRENT_VALUE.value + value;
             break;
 
         case 'ZERO':
-            console.log('Entered Zero');
             CURRENT_VALUE.value = Number(CURRENT_VALUE.value) === 0 ? value : CURRENT_VALUE.value + value;
             break;
 
@@ -41,4 +42,19 @@ let inputValue = (value)=>{
             break;
     }
 
+}
+
+/**
+ * Switch number to Positive or Negative
+ */
+let switchPositiveOrNegative = () =>{
+    let CURRENT_VALUE = document.getElementById(INPUT_ID);
+    CURRENT_VALUE.value = Number(CURRENT_VALUE.value) * -1;
+}
+
+/**
+ * Clear all values for new calculations.
+ */
+let clearValues = ()=>{
+    document.getElementById(INPUT_ID).value = 0;
 }
