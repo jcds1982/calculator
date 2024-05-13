@@ -25,16 +25,20 @@ let inputValue = (value)=>{
         case 'PERIOD':
             if(value.includes('.') && !currentValue.value.includes('.')) {
                 currentValue.value = Number(currentValue.value) === 0 ? '0' + value : currentValue.value + value;
+                writeOperation(value, '');
             }
             break;
 
         case 'NUMBER':
+
             currentValue.value = Number(currentValue.value) === 0 || currentValue.dataset.type === 'result' ? value : currentValue.value + value;
+            writeOperation(value, '');
             currentValue.dataset.type = 'input';
             break;
 
         case 'ZERO':
             currentValue.value = Number(currentValue.value) === 0 ? value : currentValue.value + value;
+            writeOperation(value, '');
             break;
 
         default:
@@ -97,16 +101,24 @@ let doCalculation = (operation)=> {
                     }
                     if(Number(currentValue.value) === 0){
                         console.log('Entered division by 0');
-                        document.getElementById('messageSection').innerHTML = `Error - You can't divide by 0`;
+                        let errorSection = document.getElementById('messageSection');
+                        errorSection.innerHTML = `Error - You can't divide by 0`;
+                        errorSection.classList.toggle('error_message');
                     }
                     break;
 
             }
-
             currentValue.dataset.previousValue = currentValue.value;
             currentValue.dataset.type = 'result';
         }
     }
+}
+
+let writeOperation = (value, symbol) =>{
+    let operationSection = document.getElementById('messageSection');
+    operationSection.classList.remove('error_message');
+    operationSection.innerHTML = operationSection.innerHTML + symbol + value;
+
 
 }
 
