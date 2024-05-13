@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+body{
+    font-family: Montserrat;
+}
 .grid{
     display: grid;
     grid-template-columns: repeat(4, 5em);
@@ -19,7 +23,7 @@
 .button{
     /*background-color: #ededed;*/
     border: 0;
-    border-radius: 50%;
+    border-radius: 20px; /* 50%; */
     font-size: 1em;
     color: #ffffff;
     padding: 1em;
@@ -58,6 +62,11 @@
     outline: transparent;
 }
 
+.error_message{
+    font-size: 1em;
+    color: orangered;
+    font-weight: bold;
+}
 
 .c_action{
     background: #db9f39;
