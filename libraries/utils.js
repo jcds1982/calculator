@@ -12,29 +12,29 @@ const INPUT_TYPE = new Map()
     .set('9','NUMBER')
     .set('.','PERIOD');
 
-
 /**
  * Enters the value on the input text for calculation
  * @param value Current value from button.
  */
 let inputValue = (value)=>{
 
-    let CURRENT_VALUE = document.getElementById(INPUT_ID);
+    let currentValue = document.getElementById(INPUT_ID);
     const CASE_OPTION = INPUT_TYPE.get(value);
 
     switch (CASE_OPTION){
         case 'PERIOD':
-            if(value.includes('.') && !CURRENT_VALUE.value.includes('.')) {
-                CURRENT_VALUE.value = Number(CURRENT_VALUE.value) === 0 ? '0' + value : CURRENT_VALUE.value + value;
+            if(value.includes('.') && !currentValue.value.includes('.')) {
+                currentValue.value = Number(currentValue.value) === 0 ? '0' + value : currentValue.value + value;
             }
             break;
 
         case 'NUMBER':
-            CURRENT_VALUE.value = Number(CURRENT_VALUE.value) === 0 ? value : CURRENT_VALUE.value + value;
+            currentValue.value = Number(currentValue.value) === 0 || currentValue.dataset.type === 'result' ? value : currentValue.value + value;
+            currentValue.dataset.type = 'input';
             break;
 
         case 'ZERO':
-            CURRENT_VALUE.value = Number(CURRENT_VALUE.value) === 0 ? value : CURRENT_VALUE.value + value;
+            currentValue.value = Number(currentValue.value) === 0 ? value : currentValue.value + value;
             break;
 
         default:
@@ -48,8 +48,8 @@ let inputValue = (value)=>{
  * Switch number to Positive or Negative
  */
 let switchPositiveOrNegative = () =>{
-    let CURRENT_VALUE = document.getElementById(INPUT_ID);
-    CURRENT_VALUE.value = Number(CURRENT_VALUE.value) * -1;
+    let currentValue = document.getElementById(INPUT_ID);
+    currentValue.value = Number(currentValue.value) * -1;
 }
 
 /**
@@ -57,4 +57,56 @@ let switchPositiveOrNegative = () =>{
  */
 let clearValues = ()=>{
     document.getElementById(INPUT_ID).value = 0;
+    document.getElementById(INPUT_ID).dataset.previousValue = '0';
+    document.getElementById('messageSection').innerHTML = ``;
 }
+
+
+
+let doCalculation = (operation)=> {
+
+    let currentValue = document.getElementById(INPUT_ID);
+    let previousValue = currentValue.dataset.previousValue;
+
+    console.log(`Operation: ${operation}`);
+    console.log(`This is the previous value ${previousValue}`)
+
+    if(currentValue.dataset.type !== 'result'){
+        if(previousValue === '0'){
+            currentValue.dataset.previousValue = currentValue.value;
+            currentValue.value = 0;
+
+        }else{
+            switch(operation){
+
+                case 'multiply':
+                    currentValue.value = Number(currentValue.dataset.previousValue) * Number(currentValue.value);
+                    break;
+
+                case 'add':
+                    currentValue.value = Number(currentValue.dataset.previousValue) + Number(currentValue.value);
+                    break;
+
+                case 'subtract':
+                    currentValue.value = Number(currentValue.dataset.previousValue) - Number(currentValue.value);
+                    break;
+
+                case 'divide':
+                    if(Number(currentValue.value) !== 0){
+                        currentValue.value = Number(currentValue.dataset.previousValue) / Number(currentValue.value);
+                    }
+                    if(Number(currentValue.value) === 0){
+                        console.log('Entered division by 0');
+                        document.getElementById('messageSection').innerHTML = `Error - You can't divide by 0`;
+                    }
+                    break;
+
+            }
+
+            currentValue.dataset.previousValue = currentValue.value;
+            currentValue.dataset.type = 'result';
+        }
+    }
+
+}
+
