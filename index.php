@@ -5,6 +5,3 @@
 require_once("view/header.php");
 require_once("view/calculator_Mainpanel.php");
 require_once("view/footer.php");
-
-// TODO: I need to start working on some of the features of the calculator. 
-// JDAVILA JAN 01 2025. 

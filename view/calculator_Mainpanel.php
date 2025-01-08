@@ -27,6 +27,4 @@
         <button class="button c_operation">=</button>
     </div>
     <script src="<?php echo "libraries/utils.js" ?>"></script>
-
-
 </body>
