@@ -66,7 +66,7 @@ let inputValue = (value) => {
             break;
 
         case "CLEAR":
-            currentValue.value = "";
+            currentValue.value = "0";
             break;
 
         case "DELETE":
