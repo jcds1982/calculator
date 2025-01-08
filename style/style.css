@@ -1,6 +1,10 @@
-.grid{
+body {
+    background-color: lightblue;
+}
+
+.grid {
     display: grid;
-    grid-template-columns: repeat(4, 5em);
+    grid-template-columns: repeat(4, 3.5em);
     grid-template-rows: repeat(7, 3.5em);
     grid-column-gap: 0.2em;
     grid-row-gap: 0.2em;
@@ -8,18 +12,18 @@
     place-items: center;
 }
 
-.span-2{
+.span-2 {
     grid-column: span 2;
 }
 
-.span-4{
+.span-4 {
     grid-column: span 4;
 }
 
-.button{
+.button {
     /*background-color: #ededed;*/
     border: 0;
-    border-radius: 50%;
+    border-radius: 10%;
     font-size: 1em;
     color: #ffffff;
     padding: 1em;
@@ -27,52 +31,50 @@
     height: 3em;
 }
 
-
-.button_2_column{
+.button_2_column {
     border: 0;
-    border-radius: 20px;
+    border-radius: 5%;
     font-size: 1em;
     color: #ffffff;
     padding: 1em;
-    width: 8.5em;
+    width: 6.7em;
     height: 3em;
 }
 
-.button_2_column:active, .button:active{
+.button_2_column:active,
+.button:active {
     /*border-radius: 40%;*/
     opacity: 80%;
 }
 
-.calculator_display{
-    width: 13em;
+.calculator_display {
+    width: 8.5em;
     font-size: 1.5em;
     padding: 0.5em;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     text-align: right;
-    background-color: #A9A9A9;
+    background-color: #a9a9a9;
     color: #ffffff;
     border: 0;
 }
 
-.calculator_display:focus{
+.calculator_display:focus {
     outline: transparent;
 }
 
-
-.c_action{
+.c_action {
     background: #db9f39;
 }
 
-.c_number{
+.c_number {
     background: #b15d5d;
 }
 
-.c_operation{
+.c_operation {
     background-color: #696969;
-
 }
 
-body{
+body {
     background-color: #ffffff;
     /*background-color: #b15d5d;*/
 }
