@@ -41,12 +41,21 @@ let inputValue = (value) => {
             break;
 
         case "NUMBER":
-            currentValue.value =
-                Number(currentValue.value) === 0 ||
-                currentValue.dataset.type === "result"
-                    ? value
-                    : currentValue.value + value;
-            currentValue.dataset.type = "input";
+            console.log(currentValue.value);
+            console.log("1" + currentValue.dataset.type !== "result");
+            console.log("2" + Number(currentValue.value.toString()) !== "0");
+            console.log("3" + currentValue.value.toString() !== "0");
+
+            if (
+                currentValue.dataset.type !== "result" &&
+                Number(currentValue.value.toString()) !== "0" &&
+                currentValue.value !== "0"
+            ) {
+                currentValue.value = currentValue.value + value;
+                break;
+            }
+
+            currentValue.value = value;
             break;
 
         case "ZERO":
