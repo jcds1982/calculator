@@ -1,7 +1,7 @@
 <body>
     <div class="grid">
-        <input id="calc" class=" calculator_display span-4" type="text" value="0" readonly data-previous-value="0"
-            data-type="input" />
+        <input id="calc" class=" calculator_display span-4" type="text" value="0" readonly data-type="input"
+            data-previous-value="0" />
         <!-- <div class="span-4" id="messageSection" ></div> -->
         <button class="button c_action" onclick="clearValues()">C</button>
         <button class="button c_action" onclick="switchPositiveOrNegative()">+/-</button>

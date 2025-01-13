@@ -1,11 +1,3 @@
-// Adding on keypress event
-document.addEventListener("keyup", function (event) {
-    // inputValue
-    let numberEntered = document.getElementById("calc");
-    inputValue(event.key?.toLowerCase());
-    console.log("Key pressed " + event.key);
-});
-
 const INPUT_ID = "calc";
 const INPUT_TYPE = new Map()
     .set("0", "ZERO")
@@ -20,7 +12,14 @@ const INPUT_TYPE = new Map()
     .set("9", "NUMBER")
     .set(".", "PERIOD")
     .set("c", "CLEAR")
-    .set("backspace", "DELETE");
+    .set("backspace", "DELETE")
+    .set("+", "ADD");
+
+// Adding on keypress event
+document.addEventListener("keyup", function (event) {
+    let numberEntered = document.getElementById(INPUT_ID);
+    inputValue(event.key?.toLowerCase());
+});
 
 /**
  * Enters the value on the input text for calculation
@@ -28,6 +27,7 @@ const INPUT_TYPE = new Map()
  */
 let inputValue = (value) => {
     let currentValue = document.getElementById(INPUT_ID);
+    let previousValue = currentValue.getAttribute("data-previous-value");
     const CASE_OPTION = INPUT_TYPE.get(value.toLowerCase());
 
     switch (CASE_OPTION) {
@@ -41,11 +41,6 @@ let inputValue = (value) => {
             break;
 
         case "NUMBER":
-            console.log(currentValue.value);
-            console.log("1" + currentValue.dataset.type !== "result");
-            console.log("2" + Number(currentValue.value.toString()) !== "0");
-            console.log("3" + currentValue.value.toString() !== "0");
-
             if (
                 currentValue.dataset.type !== "result" &&
                 Number(currentValue.value.toString()) !== "0" &&
@@ -53,6 +48,9 @@ let inputValue = (value) => {
             ) {
                 currentValue.value = currentValue.value + value;
                 break;
+            } else {
+                currentValue.value = value;
+                currentValue.setAttribute("data-type", "input");
             }
 
             currentValue.value = value;
@@ -67,14 +65,23 @@ let inputValue = (value) => {
 
         case "CLEAR":
             currentValue.value = "0";
+            currentValue.setAttribute("data-previous-value", "0");
             break;
 
         case "DELETE":
-            currentValue.value = currentValue.value.substring(
-                0,
-                currentValue.value.length - 1
-            );
+            if (currentValue.value.length != 1) {
+                currentValue.value = currentValue.value.substring(
+                    0,
+                    currentValue.value.length - 1
+                );
+                break;
+            }
+
+            currentValue.value = 0;
             break;
+
+        case "ADD":
+            doCalculation("add");
 
         default:
             console.log("Value not found");
@@ -96,15 +103,11 @@ let switchPositiveOrNegative = () => {
 let clearValues = () => {
     document.getElementById(INPUT_ID).value = 0;
     document.getElementById(INPUT_ID).dataset.previousValue = "0";
-    document.getElementById("messageSection").innerHTML = ``;
 };
 
 let doCalculation = (operation) => {
     let currentValue = document.getElementById(INPUT_ID);
-    let previousValue = currentValue.dataset.previousValue;
-
-    console.log(`Operation: ${operation}`);
-    console.log(`This is the previous value ${previousValue}`);
+    let previousValue = currentValue.getAttribute("data-previous-value");
 
     if (currentValue.dataset.type !== "result") {
         if (previousValue === "0") {
@@ -122,6 +125,10 @@ let doCalculation = (operation) => {
                     currentValue.value =
                         Number(currentValue.dataset.previousValue) +
                         Number(currentValue.value);
+                    currentValue.setAttribute(
+                        "data-previous-value",
+                        currentValue
+                    );
                     break;
 
                 case "subtract":
@@ -137,14 +144,12 @@ let doCalculation = (operation) => {
                             Number(currentValue.value);
                     }
                     if (Number(currentValue.value) === 0) {
-                        console.log("Entered division by 0");
                         document.getElementById(
                             "messageSection"
                         ).innerHTML = `Error - You can't divide by 0`;
                     }
                     break;
             }
-
             currentValue.dataset.previousValue = currentValue.value;
             currentValue.dataset.type = "result";
         }
