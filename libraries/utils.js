@@ -13,7 +13,8 @@ const INPUT_TYPE = new Map()
     .set(".", "PERIOD")
     .set("c", "CLEAR")
     .set("backspace", "DELETE")
-    .set("+", "ADD");
+    .set("+", "ADD")
+    .set("-", "SUBTRACT");
 
 // Adding on keypress event
 document.addEventListener("keyup", function (event) {
@@ -69,7 +70,7 @@ let inputValue = (value) => {
             break;
 
         case "DELETE":
-            if (currentValue.value.length != 1) {
+            if (currentValue.value.length !== 1) {
                 currentValue.value = currentValue.value.substring(
                     0,
                     currentValue.value.length - 1
@@ -82,6 +83,12 @@ let inputValue = (value) => {
 
         case "ADD":
             doCalculation("add");
+            break;
+
+
+        case "SUBTRACT":
+            doCalculation("subtract");
+            break;
 
         default:
             console.log("Value not found");
@@ -135,6 +142,9 @@ let doCalculation = (operation) => {
                     currentValue.value =
                         Number(currentValue.dataset.previousValue) -
                         Number(currentValue.value);
+                    currentValue.setAttribute(
+                        "data-previous-value",
+                        currentValue);
                     break;
 
                 case "divide":
