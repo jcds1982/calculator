@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 body {
     font-family: Montserrat;
@@ -5,6 +6,15 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 3.2em);
+=======
+body {
+    background-color: lightblue;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 3.5em);
+>>>>>>> main
     grid-template-rows: repeat(7, 3.5em);
     grid-column-gap: 0.2em;
     grid-row-gap: 0.2em;
@@ -23,7 +33,11 @@ body {
 .button {
     /*background-color: #ededed;*/
     border: 0;
+<<<<<<< HEAD
     border-radius: 20px; /* 50%; */
+=======
+    border-radius: 10%;
+>>>>>>> main
     font-size: 1em;
     color: #ffffff;
     padding: 1em;
@@ -33,11 +47,15 @@ body {
 
 .button_2_column {
     border: 0;
-    border-radius: 20px;
+    border-radius: 5%;
     font-size: 1em;
     color: #ffffff;
     padding: 1em;
+<<<<<<< HEAD
     width: 6.4em;
+=======
+    width: 6.7em;
+>>>>>>> main
     height: 3em;
 }
 
@@ -48,10 +66,14 @@ body {
 }
 
 .calculator_display {
+<<<<<<< HEAD
     width: 8em;
+=======
+    width: 8.5em;
+>>>>>>> main
     font-size: 1.5em;
     padding: 0.5em;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     text-align: right;
     background-color: #a9a9a9;
     color: #ffffff;
@@ -62,12 +84,15 @@ body {
     outline: transparent;
 }
 
+<<<<<<< HEAD
 .error_message {
     font-size: 1em;
     color: orangered;
     font-weight: bold;
 }
 
+=======
+>>>>>>> main
 .c_action {
     background: #db9f39;
 }
