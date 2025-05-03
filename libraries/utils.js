@@ -16,6 +16,8 @@ const INPUT_TYPE = new Map()
     .set("backspace", "DELETE")
     .set("+", "ADD")
     .set("-", "SUBTRACT")
+    .set("*", "MULTIPLY")
+    .set("/", "DIVIDE")
     .set("=", "EQUALS");
 // Adding on keypress event
 document.addEventListener("keyup", function (event) {
@@ -77,6 +79,16 @@ let inputValue = (value) => {
         case "SUBTRACT":
             currentOperator = CASE_OPTION;
             doCalculation("subtract");
+            break;
+
+        case "MULTIPLY":
+            currentOperator = CASE_OPTION;
+            doCalculation("multiply");
+            break;
+
+        case "DIVIDE":
+            currentOperator = CASE_OPTION;
+            doCalculation("divide");
             break;
 
         case "EQUALS":
