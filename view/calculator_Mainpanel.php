@@ -5,6 +5,7 @@
         <!-- <div class="span-4" id="messageSection" ></div> -->
         <button class="button c_action" onclick="clearValues()">C</button>
         <button class="button c_action" onclick="switchPositiveOrNegative()">+/-</button>
+        <!-- TODO: Need to work on the percentage operation. -->
         <button class="button c_action">%</button>
         <button class="button c_operation" onclick="inputValue('/')" >/</button>
         <button class="button c_number" onclick="inputValue('7')">7</button>

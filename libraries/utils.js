@@ -41,7 +41,7 @@ let inputValue = (value) => {
             break;
 
         case "NUMBER":
-            if (currentValue.dataset.type !== "result" && Number(currentValue.value.toString()) !== "0" && currentValue.value !== "0") {
+            if (currentValue.dataset.type !== "result" && Number(currentValue.value.toString()) !== 0 && currentValue.value !== 0) {
                 currentValue.value = currentValue.value + value;
                 break;
             } else {
@@ -92,7 +92,6 @@ let inputValue = (value) => {
             break;
 
         case "EQUALS":
-            console.log('Operator ' + currentOperator);
             doCalculation(currentOperator.toLowerCase());
             break;
 
@@ -134,32 +133,33 @@ let doCalculation = (operation) => {
         } else {
             switch (operation) {
                 case "multiply":
-                    currentValue.value = Number(currentValue.dataset.previousValue) * Number(currentValue.value);
+                    currentValue.value = (Number(currentValue.dataset.previousValue) * Number(currentValue.value)).toFixed(4);
                     break;
 
                 case "add":
                     currentValue.value = Number(currentValue.dataset.previousValue) + Number(currentValue.value);
-                    currentValue.setAttribute("data-previous-value", currentValue);
+                    currentValue.setAttribute("data-previous-value", currentValue.value);
                     break;
 
                 case "subtract":
                     currentValue.value = Number(currentValue.dataset.previousValue) - Number(currentValue.value);
-                    currentValue.setAttribute("data-previous-value", currentValue);
+                    currentValue.setAttribute("data-previous-value", currentValue.value);
                     break;
 
                 case "divide":
                     if (Number(currentValue.value) !== 0) {
-                        currentValue.value = Number(currentValue.dataset.previousValue) / Number(currentValue.value);
+                        currentValue.value = parseFloat((Number(currentValue.dataset.previousValue) / Number(currentValue.value)).toFixed(4));
                     }
                     if (Number(currentValue.value) === 0) {
-                        document.getElementById("messageSection").innerHTML = `Error - You can't divide by 0`;
+                        currentValue.value =  "Error";
+                        currentValue.setAttribute("data-previous-value", '0');
                     }
                     break;
                 default:
                     break;
             }
-            currentValue.dataset.previousValue = currentValue.value;
+            currentValue.dataset.previousValue = currentValue.value !== "Error" ? parseFloat(currentValue.value).toFixed(4): 0;
             currentValue.dataset.type = "result";
         }
-    }
+    }``
 };
