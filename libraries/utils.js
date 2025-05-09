@@ -133,7 +133,7 @@ let doCalculation = (operation) => {
         } else {
             switch (operation) {
                 case "multiply":
-                    currentValue.value = (Number(currentValue.dataset.previousValue) * Number(currentValue.value)).toFixed(4);
+                    currentValue.value = parseFloat((Number(currentValue.dataset.previousValue) * Number(currentValue.value)).toFixed(4));
                     break;
 
                 case "add":
@@ -161,5 +161,5 @@ let doCalculation = (operation) => {
             currentValue.dataset.previousValue = currentValue.value !== "Error" ? parseFloat(currentValue.value).toFixed(4): 0;
             currentValue.dataset.type = "result";
         }
-    }``
+    }
 };
