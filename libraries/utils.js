@@ -18,9 +18,12 @@ const INPUT_TYPE = new Map()
     .set("-", "SUBTRACT")
     .set("*", "MULTIPLY")
     .set("/", "DIVIDE")
+    .set("%", "PERCENTAGE")
+    .set("enter", "EQUALS")
     .set("=", "EQUALS");
 // Adding on keypress event
 document.addEventListener("keyup", function (event) {
+    console.log(`Key up : ${event.key?.toLowerCase()} `);
     inputValue(event.key?.toLowerCase());
 });
 
@@ -95,6 +98,11 @@ let inputValue = (value) => {
             doCalculation(currentOperator.toLowerCase());
             break;
 
+        case "PERCENTAGE":
+            currentOperator = CASE_OPTION;
+            doCalculation("percentage");
+            break;
+
         default:
             console.log("Value not found");
             break;
@@ -155,6 +163,11 @@ let doCalculation = (operation) => {
                         currentValue.setAttribute("data-previous-value", '0');
                     }
                     break;
+
+                case "percentage":
+                    currentValue.value = Number(currentValue.dataset.previousValue) * (Number(currentValue.value)/100);
+                    currentValue.setAttribute("data-previous-value", currentValue.value);
+                    break;
                 default:
                     break;
             }
@@ -162,4 +175,4 @@ let doCalculation = (operation) => {
             currentValue.dataset.type = "result";
         }
     }
-};
+}
