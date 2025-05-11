@@ -39,11 +39,17 @@ let inputValue = (value) => {
 
         case "PERIOD":
             if (value.includes(".") && !currentValue.value.includes(".")) {
-                currentValue.value = Number(currentValue.value) === 0 ? "0" + value : currentValue.value + value;
+                // currentValue.value = Number(currentValue.value) === 0 ? "0" + value : currentValue.value + value;
+                currentValue.value = currentValue.value + value;
             }
             break;
 
         case "NUMBER":
+            if (currentValue.value.includes(".")){
+                currentValue.value = currentValue.value + value;
+                break;
+            }
+            console.log(`includes . ${currentValue.value.includes(".")}`);
             if (currentValue.dataset.type !== "result" && Number(currentValue.value.toString()) !== 0 && currentValue.value !== 0) {
                 currentValue.value = currentValue.value + value;
                 break;
@@ -56,7 +62,7 @@ let inputValue = (value) => {
             break;
 
         case "ZERO":
-            currentValue.value = Number(currentValue.value) === 0 ? value : currentValue.value + value;
+            currentValue.value = Number(currentValue.value) === 0 && !currentValue.value.includes(".") ? value : currentValue.value + value;
             break;
 
         case "CLEAR":
