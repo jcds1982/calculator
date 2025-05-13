@@ -8,15 +8,33 @@ body {
     /*background-color: lightblue;*/
 }
 
+.calculator_container{
+    /*background-color: darkslategray;*/
+    /*width: 15em ;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2em;
+
+
+}
+
 .grid {
     /*background: #91a3b0 ;*/
     display: grid;
     grid-template-columns: repeat(4, 3em);
-    grid-template-rows: repeat(7, 3em);
+    grid-template-rows: repeat(6, 3em);
     grid-column-gap: 0.2em;
     grid-row-gap: 0.2em;
     justify-items: center;
     place-items: center;
+    background-color: #bbbbbb;
+    padding: 1em;
+    /*border: #444444 0.1em solid;*/
+    border-radius: 5px;
+    /*box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;*/
+    /*box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;*/
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.4) 0px 0px 0px 1px;
 }
 
 .span-2 {
@@ -57,10 +75,13 @@ body {
 .calculator_display {
     width: 7.4em;
     font-size: 1.5em;
-    padding: 0.5em;
+    padding-top: 0.4em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.4em;
     border-radius: 0.2em;
     text-align: right;
-    background-color: #a9a9a9;
+    background-color: #555555;
     color: #ffffff;
     border: 0;
 }
