@@ -1,26 +1,15 @@
-/*
-Julio Davila
-Calculator stylesheet
-2025
+/**
+Julio Davila - Calculator stylesheet 2025
 */
 
-body {
-    /*background-color: lightblue;*/
-}
-
 .calculator_container{
-    /*background-color: darkslategray;*/
-    /*width: 15em ;*/
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.2em;
-
-
 }
 
 .grid {
-    /*background: #91a3b0 ;*/
     display: grid;
     grid-template-columns: repeat(4, 3em);
     grid-template-rows: repeat(6, 3em);
@@ -30,10 +19,7 @@ body {
     place-items: center;
     background-color: #bbbbbb;
     padding: 1em;
-    /*border: #444444 0.1em solid;*/
     border-radius: 5px;
-    /*box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;*/
-    /*box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;*/
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.4) 0px 0px 0px 1px;
 }
 
@@ -46,7 +32,6 @@ body {
 }
 
 .button {
-    /*background-color: #ededed;*/
     border: 0;
     border-radius: 10%;
     font-size: 1em;
@@ -68,7 +53,6 @@ body {
 
 .button_2_column:active,
 .button:active {
-    /*border-radius: 40%;*/
     opacity: 80%;
 }
 
@@ -104,6 +88,5 @@ body {
 
 body {
     background-color: #ffffff;
-    /*background-color: #b15d5d;*/
 }
 
