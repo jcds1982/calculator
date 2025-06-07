@@ -1,6 +1,6 @@
-<body>
+<body class="roboto-calc-font">
 
-<h1>Calculator in JS</h1>
+<h1>Calculator in Vanilla JavaScript</h1>
     <div class="calculator_container">
         <div class="grid">
             <input id="calc" class=" calculator_display span-4" type="text" value="0" readonly data-type="input"
@@ -30,7 +30,9 @@
             <button class="button c_number" onclick="inputValue('.')" tabindex="-1">.</button>
             <button class="button c_operation" onclick="inputValue('=' +
              '')" tabindex="-1">=</button>
+            <span class="span-4">Created by JDQUADS</span>
         </div>
+
     </div>
     <script src="<?php echo "libraries/utils.js" ?>"></script>
 </body>

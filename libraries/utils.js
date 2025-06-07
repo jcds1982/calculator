@@ -25,6 +25,7 @@ const INPUT_TYPE = new Map()
 document.addEventListener("keyup", function (event) {
     console.log(`Key up : ${event.key?.toLowerCase()} `);
     inputValue(event.key?.toLowerCase());
+    event.target.blur();
 });
 
 /**
