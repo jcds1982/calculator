@@ -1,2 +1,2 @@
 # calculator
-PHP Calculator
+JavaScript Calculator
