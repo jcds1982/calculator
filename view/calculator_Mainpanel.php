@@ -28,8 +28,7 @@
 
             <button class="button_2_column c_number span-2" onclick="inputValue('0')" tabindex="-1">0</button>
             <button class="button c_number" onclick="inputValue('.')" tabindex="-1">.</button>
-            <button class="button c_operation" onclick="inputValue('=' +
-             '')" tabindex="-1">=</button>
+            <button class="button c_operation" onclick="inputValue('=')" tabindex="-1">=</button>
             <span class="span-4">Created by JDQUADS</span>
         </div>
 

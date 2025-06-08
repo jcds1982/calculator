@@ -35,7 +35,6 @@ document.addEventListener("keyup", function (event) {
 let inputValue = (value) => {
     let currentValue = document.getElementById(INPUT_ID);
     const CASE_OPTION = INPUT_TYPE.get(value.toLowerCase());
-
     switch (CASE_OPTION) {
 
         case "PERIOD":
@@ -46,11 +45,11 @@ let inputValue = (value) => {
             break;
 
         case "NUMBER":
-            if (currentValue.value.includes(".")){
+
+            if (currentValue.value.includes(".") && currentValue.dataset.type !== "result"){
                 currentValue.value = currentValue.value + value;
                 break;
             }
-            console.log(`includes . ${currentValue.value.includes(".")}`);
             if (currentValue.dataset.type !== "result" && Number(currentValue.value.toString()) !== 0 && currentValue.value !== 0) {
                 currentValue.value = currentValue.value + value;
                 break;
@@ -139,7 +138,7 @@ let clearValues = () => {
  */
 let doCalculation = (operation) => {
     let currentValue = document.getElementById(INPUT_ID);
-    let previousValue = currentValue.getAttribute("data-previous-value");
+    let previousValue = currentValue?.getAttribute("data-previous-value");
 
     if (currentValue.dataset.type !== "result") {
         if (previousValue === "0") {
